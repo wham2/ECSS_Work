@@ -10,3 +10,6 @@ I completed a python script in python 3.5 (required for me to use pyquery to pul
 
 8.26.2020
 I re-ran the script to get more articles to see how that would go. I was able to get 175 articles for Donald Trump. My error handling is still not that good in that sometimes the URL kick's back an undefined schema, so I just modify the range of the for loop to the next article after the failed pull and keep going. The articles are more representative of this calendar year quarter (100 articles) while previous two quarters have 75 articles and 25 articles respectively. I did pickle the images file, which is now at 600 MB and I will need to move that to Bridges with help. 
+
+8.28.2020
+Held the bi-weekly call with Darren and John and was able to confirm a few things about where my data should be stored (Pylon) and next steps. I was able to login to my Globus online account and figured out how to move the pickle files to my pylon directory. Next I will begin looking into face recognition algorithms in order to chip out the faces from the article images and topic modeling algorithms in order to identify / characterize the text articles. After that I plan to look into nonlinear dimensionality reduction algorithms for embedding the two data types.
