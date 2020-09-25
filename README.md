@@ -20,3 +20,9 @@ Held the bi-weekly with Darren and John. I spent the last few weeks getting fami
 9.12.2020
 I spent some time searching and reviewing facial recognition code sources specifically employing tensorflow 2.0 to accelerate and simplify my facial recognition project tasks. Of the ones identified, I chose to experiment with tiny face detection by burnpiro at https://github.com/burnpiro/tiny-face-detection-tensorflow2  I also looked at tensorflow playground and tensorflow zoo based on the references of dev Deejay's github gist article on Medium. Burnpiro uses a pretrained tensorflow image recognition network, mobileNetV2, employing transfer learning to get the facial recognition capability. Training the network on the WIDER FACE dataset available in Tensorflow gives it the target facial recognition capability.
 
+9.21.2020
+I used the tiny face detection code to employ transfer learning from the object detection capability on the mobileNetV2 network by removing the last layer and re-training a new last layer with the WIDER FACE dataset. This ran for about 12 hours on my laptop (30 of 150 epochs were completed) and finally I think the training stopped because it plateaued. I attempted to use one of the dataset images as a test to see if this was enough training to identify the face and the network failed to recognize the face. I checked the loss metric and the network had 62.9% loss. 
+
+9.25.2020
+I met with Darren and John and relayed my experience over the past few weeks on the facial recognition trained network and John recommended that I go ahead and retry training the network using a GPU-AI batch job with fewer epochs to see if it will work because it will still be faster than my laptop which only has 1 gpu. He is also going to check on my supplemental request to try and get the GPU interactive allotment accelerated for me. 
+
