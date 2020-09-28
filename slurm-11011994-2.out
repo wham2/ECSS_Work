@@ -1,0 +1,3 @@
++ cd /pylon5/ci561jp/wham/tiny-face-detection-tensorflow2
++ train.py
+/var/slurmd/job11011994/slurm_script: line 16: ./train.py: Permission denied
