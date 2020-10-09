@@ -26,3 +26,38 @@ I used the tiny face detection code to employ transfer learning from the object 
 9.25.2020
 I met with Darren and John and relayed my experience over the past few weeks on the facial recognition trained network and John recommended that I go ahead and retry training the network using a GPU-AI batch job with fewer epochs to see if it will work because it will still be faster than my laptop which only has 1 gpu. He is also going to check on my supplemental request to try and get the GPU interactive allotment accelerated for me. 
 
+9.30.2020
+After some trial and error, I was able to submit an interact request for GPU-AI resources and get varying numbers of hours allocated. In several of these runs (4 hours, 6 hours, 8 hours, and 16 hours) I was able to train the mobilenetV2 network with the WIDER_FACE dataset. I experimented with small numbers of training epochs first (e.g. 4, 12, 30, 50, 100) to ensure the code would successfully complete. In all of these cases, and moving above 30 epochs still only resulted in model .h5 files (those that include actual model weights) for runs below epoch 30. For all epochs above 30, the results all showed the network experienced learning plateaus and did incrementally reduce learning rate, but never any improvements. Additionally, experimenting with the batch job submission for GPU-AI resources, I always experienced problems and these jobs never even started successfully. The error I get at the end of the slurm file is:
+
++ python train.py
+Traceback (most recent call last):
+  File "train.py", line 1, in <module>
+    import tensorflow as tf
+ImportError: No module named tensorflow
+
+I have also attached the slurm file to the code repo for your review.
+
+The sbatch file is as follows, which does work successfully when starting the interact mode with a GPU-AI resource:
+#!/bin/bash
+#SBATCH -N 1
+#SBATCH -p GPU-AI
+#SBATCH --ntasks-per-node 20
+#SBATCH --gres=gpu:volta16:8
+#SBATCH -t 8:00:00
+
+#echo commands to stdout
+set -x
+#move to working directory  # this job assumes:
+# - all input data is stored in this directory
+# - all output should be stored in this directory
+cd /pylon5/ci561jp/wham/tiny-face-detection-tensorflow2
+
+#load the singularity container to get tensorflow
+module load singularity
+singularity shell --nv /pylon5/containers/ngc/tensorflow/tensorflow_20.02-tf2-py3.sif
+
+#run GPU program
+python train.py
+
+10.5.2020
+I attempted to use the model file that completed with only 30 epochs since I could not get the network to make any progress in learning past that. I have added files that show the source image, meme.jpg, as well as the output image, output.jpg, to show the performance. While the face is partially detected, it is not that good. I am assuming it 'could' get better with more training, but I have not been able to get improvements past 30 epochs and need to figure out which configurations in the config.py file to modify to improve the learning. 
