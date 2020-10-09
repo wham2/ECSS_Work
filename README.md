@@ -61,3 +61,6 @@ python train.py
 
 10.5.2020
 I attempted to use the model file that completed with only 30 epochs since I could not get the network to make any progress in learning past that. I have added files that show the source image, meme.jpg, as well as the output image, output.jpg, to show the performance. While the face is partially detected, it is not that good. I am assuming it 'could' get better with more training, but I have not been able to get improvements past 30 epochs and need to figure out which configurations in the config.py file to modify to improve the learning. 
+
+10.9.2020
+After the call this week I learned that I really need to check the bridges user guide at https://www.psc.edu/bridges/user-guide/sample-batch-scripts#gpu-ai as it can provide me some sample batch scripts that I can use that corresponds with the correct singularity container. I was using something that was not correct. I also need to check and see what the latest image of tensorflow is so I can reference that in my batch script.
