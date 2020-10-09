@@ -1,0 +1,21 @@
++ cd /pylon5/ci561jp/wham/tiny-face-detection-tensorflow2
++ module load singularity
+++ /usr/bin/modulecmd bash load singularity
++ eval LD_LIBRARY_PATH=/opt/packages/singularity/3.6.3/lib:/opt/packages/pgi_openmpi/19.10-3.1.4/lib:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/lib ';export' 'LD_LIBRARY_PATH;LOADEDMODULES=psc_path/1.1:slurm/default:pgi/19.10:xdusage/2.1-1:mpi/pgi_openmpi/19.10:singularity/3.6.3' ';export' 'LOADEDMODULES;MANPATH=/opt/packages/singularity/3.6.3/share/man:/opt/packages/pgi_openmpi/19.10-3.1.4/share/man:/opt/packages/xdusage/2.1-1/share/man:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/man:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man' ';export' 'MANPATH;PATH=/opt/packages/singularity/3.6.3/bin:/opt/packages/pgi_openmpi/19.10-3.1.4/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/bin:/sbin:/opt/puppetlabs/bin:./:/home/wham/.local/bin:/home/wham/bin' ';export' 'PATH;_LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/pgi/19.10:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/mpi/pgi_openmpi/19.10:/opt/modulefiles/singularity/3.6.3' ';export' '_LMFILES_;'
+++ LD_LIBRARY_PATH=/opt/packages/singularity/3.6.3/lib:/opt/packages/pgi_openmpi/19.10-3.1.4/lib:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/lib
+++ export LD_LIBRARY_PATH
+++ LOADEDMODULES=psc_path/1.1:slurm/default:pgi/19.10:xdusage/2.1-1:mpi/pgi_openmpi/19.10:singularity/3.6.3
+++ export LOADEDMODULES
+++ MANPATH=/opt/packages/singularity/3.6.3/share/man:/opt/packages/pgi_openmpi/19.10-3.1.4/share/man:/opt/packages/xdusage/2.1-1/share/man:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/man:/opt/packages/slurm/default/share/man:/usr/local/man:/usr/share/man
+++ export MANPATH
+++ PATH=/opt/packages/singularity/3.6.3/bin:/opt/packages/pgi_openmpi/19.10-3.1.4/bin:/usr/lib64/qt-3.3/bin:/opt/packages/xdusage/2.1-1/bin:/opt/packages/pgi/19.10/linux86-64-llvm/19.10/bin:/opt/packages/slurm/default/bin:/opt/packages/allocations:/opt/packages/interact/bin:/usr/lib64/ccache:/usr/local/bin:/bin:/usr/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/opt/puppetlabs/puppet/bin:/bin:/sbin:/opt/puppetlabs/bin:./:/home/wham/.local/bin:/home/wham/bin
+++ export PATH
+++ _LMFILES_=/opt/modulefiles/psc_path/1.1:/opt/modulefiles/slurm/default:/opt/modulefiles/pgi/19.10:/opt/modulefiles/xdusage/2.1-1:/opt/modulefiles/mpi/pgi_openmpi/19.10:/opt/modulefiles/singularity/3.6.3
+++ export _LMFILES_
++ singularity shell --nv /pylon5/containers/ngc/tensorflow/tensorflow_20.02-tf2-py3.sif
+Usage example: change_mofed_version.sh 4.5-1.0.1
++ python train.py
+Traceback (most recent call last):
+  File "train.py", line 1, in <module>
+    import tensorflow as tf
+ImportError: No module named tensorflow
